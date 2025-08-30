@@ -1,0 +1,119 @@
+body{
+  background-color: black !important;
+  color:white !important;
+}
+
+.productBody{
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.bestSellers{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.newArrivals{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.upcomingDrops{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.termekKep{
+  width: 100%;
+}
+.termekSzov{
+  margin: 0 !important;
+}
+
+.termekAr{
+  margin: 0 !important;
+  font-weight: normal;
+}
+
+.product{
+  width: 20vw;
+  text-align: start;
+}
+
+.productDesc{
+  gap: 10px;
+}
+
+.productMat{
+  margin: 0 !important;
+  font-size: 15px;
+}
+
+.productButton{
+  background-color: white;
+  color: #602388;
+  border: 2px solid #602388;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+}
+@media (max-width: 1500px) {
+  .termekSzov{
+    margin: 0 !important;
+    font-size: 25px;
+  }
+
+  .termekAr{
+    margin: 0 !important;
+    font-weight: normal;
+    font-size: 25px;
+  }
+}
+@media (max-width: 1000px) {
+  .termekSzov{
+    margin: 0 !important;
+    font-size: 15px;
+  }
+
+  .termekAr{
+    margin: 0 !important;
+    font-weight: normal;
+    font-size: 15px;
+  }
+  .productMat{
+    font-size: 10px;
+  }
+}
+@media (max-width: 580px) {
+
+  .termekAr{
+    margin: 0 !important;
+    font-weight: normal;
+    font-size: 10px;
+  }
+
+  .productButton {
+    font-size: 10px;
+  }
+}
+
+.upcomingTextDesc{
+  font-size: 15px;
+}
+.upcomingIcons{
+  font-size: 15px;
+}

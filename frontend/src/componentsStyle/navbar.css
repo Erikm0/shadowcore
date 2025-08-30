@@ -1,0 +1,42 @@
+.fejlec {
+    border-bottom: 1px solid white;
+    height: 100px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    gap: 2vw;
+}
+
+.headerText {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.icon {
+    height: 70px;
+}
+@media (max-width: 800px) {
+    .fejlec {
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+        font-size: 15px;
+    }
+
+    .icon {
+        height: 50px !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .fejlec {
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+        font-size: 10px;
+    }
+
+    .icon {
+        height: 20px !important;
+    }
+}

@@ -1,0 +1,22 @@
+# IDE / editor
+.idea/
+.vscode/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/*.log
+
+# Backend (Laravel)
+backend/vendor/
+backend/storage/*.key
+backend/storage/logs/
+backend/storage/framework/cache/
+backend/storage/framework/sessions/
+backend/storage/framework/views/
+backend/.env
+
+# OS/system files
+.DS_Store
+Thumbs.db
