@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('size');
             $table->string('material');
             $table->string('fit');
-            $table->integer('price');
+            $table->float('price');
             $table->integer('GSM');
             $table->integer('stock');
             $table->timestamps();

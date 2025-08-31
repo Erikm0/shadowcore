@@ -1,25 +1,26 @@
 import React from 'react';
 
-const ProductCard = ({ product }) => {
-    return (
-        <div className="d-flex flex-column align-items-center product">
-            <img className="termekKep" alt="termekKep" src={product.image} />
-            <div className="d-flex flex-column align-items-start w-100">
-                <p className="termekSzov">{product.name}</p>
-                <p className="termekSzov termekAr">{product.price}</p>
-                <div className="d-flex flex-row productDesc">
-                    <div>
-                        <img className="productIconMat" alt="material" />
-                        <p className="termekSzov">{product.material}</p>
-                    </div>
-                    <div>
-                        <img className="productIconGsm" alt="gsm" />
-                        <p className="termekSzov">{product.gsm}</p>
+const ProductCard = ({product}) => {
+    return (<>
+            <div className={"d-flex flex-column align-items-start product w-100"}>
+                <img className={"termekKep"} alt={"termekKep"} src={product.image_url}></img>
+                <div className={"d-flex flex-column align-items-start"}>
+                    <p className={"termekSzov w-100"}>{product.name}</p>
+                    <p className={"termekAr w-100"}>{product.price}€</p>
+                    <div className={"d-flex flex-row productDesc"}>
+                        <div className={"d-flex flex-row"}>
+                            <img className={"productIconMat"}></img>
+                            <p className={"productMat"}>{product.material}</p>
+                        </div>
+                        <div className={"d-flex flex-row"}>
+                            <img className={"productIconGsm"}></img>
+                            <p className={"productMat"}>{product.GSM} GSM</p>
+                        </div>
                     </div>
                 </div>
+                <button className={"productButton"}>BUY NOW</button>
             </div>
-            <button className="productButton">BUY NOW</button>
-        </div>
+        </>
     );
 };
 

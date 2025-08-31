@@ -30,7 +30,25 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'collection' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image_url' => 'required|string|max:255',
+            'color' => 'required|string|max:255',
+            'size' => 'required|string',
+            'material' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'GSM' => 'required|integer',
+            'stock' => 'required|integer|min:0',
+        ]);
+
+        $product = Product::create($validated);
+
+        return response()->json([
+            'message' => 'Termék sikeresen feltöltve!',
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -54,7 +72,25 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'collection' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image_url' => 'required|string|max:255',
+            'color' => 'required|string|max:255',
+            'size' => 'required|integer',
+            'material' => 'required|string|max:255',
+            'price' => 'required|integer',
+            'GSM' => 'required|integer',
+            'stock' => 'required|integer',
+        ]);
+
+        $product->update($validated);
+
+        return response()->json([
+            'message' => 'Sikeres frissítés',
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -62,6 +98,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return response()->json([
+            'message' => 'Sikeresen törlésre került a '.$product.'termék',
+        ]);
     }
 }
