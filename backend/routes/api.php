@@ -9,3 +9,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::resource('products', ProductController::class);
+
+
+//egy termék adatai
+Route::get('/product/name/{name}', [ProductController::class, 'showByName']);

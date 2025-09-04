@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, onClick}) => {
     return (<>
-            <div className={"d-flex flex-column align-items-start product w-100"}>
+            <div className="d-flex flex-column align-items-start product w-100" onClick={() => onClick(product.name)}>
                 <img className={"termekKep"} alt={"termekKep"} src={product.image_url}></img>
                 <div className={"d-flex flex-column align-items-start"}>
                     <p className={"termekSzov w-100"}>{product.name}</p>

@@ -55,7 +55,7 @@ class ProductController extends Controller
      * Display the specified resource.
      */
     public function show(Product $product)
-    {;
+    {
         return response()->json([$product]);
     }
 
@@ -103,5 +103,14 @@ class ProductController extends Controller
         return response()->json([
             'message' => 'Sikeresen törlésre került a '.$product.'termék',
         ]);
+    }
+
+    /**
+     * Extra product
+     */
+    public function showByName($name)
+    {
+        $product = Product::where('name', $name)->firstOrFail();
+        return response()->json($product);
     }
 }

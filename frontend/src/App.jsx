@@ -1,14 +1,16 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import banner from "./assets/test_banner.png";
 import dummy from "./assets/ln_s_002_024_2.png";
 import upcoming from "./assets/Lart_de_vivre.png";
 import Navbar from "./components/Navbar.jsx";
 import ProductCard from './components/ProductCard.jsx';
+import ProductDetail from './components/ProductDetail.jsx';
 
 function App() {
     const [bestSellers, setBestSellers] = useState([]);
     const [newArrivals, setNewArrivals] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:8000/api/products')
@@ -16,18 +18,25 @@ function App() {
             .then(data => setBestSellers(data))
             .catch(err => console.error(err));
 
-        fetch('https://api.example.com/new-arrivals')
+        fetch('http://localhost:8000/api/products')
             .then(res => res.json())
             .then(data => setNewArrivals(data))
             .catch(err => console.error(err));
     }, []);
+
+    const handleProductClick = (name) => {
+        fetch(`http://localhost:8000/api/product/name/${encodeURIComponent(name)}`)
+            .then(res => res.json())
+            .then(data => setSelectedProduct(data))
+            .catch(err => console.error(err));
+    };
 
     const renderProducts = (products) => (
         products.map((product, index) => {
             const ketto = index >= products.length - 2;
             return (
                 <div key={index} className={`col-6 col-lg-3 ${ketto ? "mt-4 mt-sm-0" : ""}`}>
-                    <ProductCard product={product}/>
+                    <ProductCard product={product} onClick={handleProductClick} />
                 </div>
             )
         })
@@ -85,6 +94,12 @@ function App() {
                     </div>
                 </div>
 
+                {/* Részletes termékadatok csak ha rákattintottunk */}
+                <ProductDetail
+                    product={selectedProduct}
+                    onClose={() => setSelectedProduct(null)}
+                />
+
                 {/* Upcoming Drops */}
                 <div className="upcomingDrops">
                     <p>UPCOMING DROPS</p>
@@ -94,36 +109,12 @@ function App() {
                             <img className="w-100" src={dummy} alt="Upcoming Shirt Image"/>
                         </div>
                         <div className="col-9">
-                            <div
-                                className="d-flex flex-column align-items-start justify-content-between upcomingText h-100">
+                            <div className="d-flex flex-column align-items-start justify-content-between upcomingText h-100">
                                 <p className="upcomingTextTitle">The land of the rising sun</p>
                                 <p className="upcomingTextDesc text-start">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec tellus
-                                    malesuada,
-                                    mattis neque quis, ullamcorper est...
+                                    malesuada, mattis neque quis, ullamcorper est...
                                 </p>
-                                <div className="upcomingIcons">
-                                    <div className="d-flex flex-row gap-5">
-                                        <div className="d-flex flex-row">
-                                            <img className="upcomingIconMat" alt="icon"/>
-                                            <p className="upcomingMat">100% cotton</p>
-                                        </div>
-                                        <div className="d-flex flex-row">
-                                            <img className="upcomingIconFit" alt="icon"/>
-                                            <p className="upcomingFit">Classic Fit</p>
-                                        </div>
-                                    </div>
-                                    <div className="d-flex flex-row gap-5">
-                                        <div className="d-flex flex-row">
-                                            <img className="upcomingTTS" alt="icon"/>
-                                            <p className="upcomingTTS">True to size</p>
-                                        </div>
-                                        <div className="d-flex flex-row">
-                                            <img className="upcomingIconGsm" alt="icon"/>
-                                            <p className="upcomingMat">180 GSM</p>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,11 @@ body{
   color:white !important;
 }
 
+a{
+  color:white;
+  text-decoration: none;
+}
+
 .productBody{
   margin-left: 5vw;
   margin-right: 5vw;
@@ -47,6 +52,23 @@ body{
   font-weight: normal;
 }
 
+.selectedProductDetail {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 70%;
+  height: 80%;
+}
+.selectedProductDetail img{
+  width: 50%;
+}
 .product{
   width: 20vw;
   text-align: start;
